@@ -14,9 +14,18 @@ public class AuthController {
     private UserRepository userRepository;
 
     @PostMapping("/login")
-    public ResponseEntity<User> login(@RequestBody User user) {
+    public ResponseEntity<?> login(@RequestBody User user) {
         return userRepository.findByPhone(user.getPhone())
+                .filter(u -> u.getPassword().equals(user.getPassword()))
                 .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.ok(userRepository.save(user)));
+                .orElseGet(() -> ResponseEntity.status(401).body(null));
+    }
+
+    @PostMapping("/signup")
+    public ResponseEntity<?> signup(@RequestBody User user) {
+        if (userRepository.findByPhone(user.getPhone()).isPresent()) {
+            return ResponseEntity.status(409).body("User already exists");
+        }
+        return ResponseEntity.ok(userRepository.save(user));
     }
 }
