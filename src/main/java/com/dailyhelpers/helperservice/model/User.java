@@ -13,10 +13,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String phone;
+    private String phone; // This will be used as the username
     private String password;
 
     // Getters and Setters
+    public String getUsername() {
+        return phone; // Returning phone as username
+    }
+
     public String getName() {
         return name;
     }
