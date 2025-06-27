@@ -1,8 +1,10 @@
 /Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/DailyHelpersApplication.java
+/Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/config/OpenApiConfig.java
 /Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/config/SecurityConfig.java
 /Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/controller/AuthController.java
 /Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/controller/BookingController.java
 /Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/controller/HelperController.java
+/Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/exception/GlobalExceptionHandler.java
 /Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/model/Booking.java
 /Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/model/HelperProfile.java
 /Users/mrudul.vajpayee/Documents/daily-helper-service/src/main/java/com/dailyhelpers/helperservice/model/JwtResponse.java

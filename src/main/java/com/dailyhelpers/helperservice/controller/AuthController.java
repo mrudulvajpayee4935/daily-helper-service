@@ -15,10 +15,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth") // Changed mapping to /api/auth
+@SecurityRequirement(name = "bearerAuth") // Apply security to all endpoints in this controller
 public class AuthController {
 
     @Autowired
@@ -37,6 +39,7 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/login")
+    @SecurityRequirement(name = "none") // Exclude login from security
     public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody LoginRequest authenticationRequest) throws Exception {
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
@@ -45,6 +48,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
+    @SecurityRequirement(name = "none") // Exclude signup from security
     public ResponseEntity<?> signup(@Valid @RequestBody User user) {
         if (userRepository.findByUsername(user.getUsername()) != null) {
             return ResponseEntity.status(409).body("User already exists");
