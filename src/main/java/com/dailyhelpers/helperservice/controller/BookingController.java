@@ -4,6 +4,7 @@ import com.dailyhelpers.helperservice.model.Booking;
 import com.dailyhelpers.helperservice.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class BookingController {
     private BookingRepository bookingRepository;
 
     @PostMapping
-    public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
+    public ResponseEntity<Booking> createBooking(@Valid @RequestBody Booking booking) {
         return ResponseEntity.ok(bookingRepository.save(booking));
     }
 
